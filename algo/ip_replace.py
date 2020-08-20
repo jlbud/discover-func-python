@@ -8,9 +8,10 @@
 """
 
 
-def failureIPaddr(address: str) -> str:
+def failure_ip_addr(address: str) -> str:
     return address.replace(".", "[.]")
 
 
-result = failureIPaddr("192.168.1.1")
-print(result)
+if __name__ == '__main__':
+    result = failure_ip_addr("192.168.1.1")
+    print(result)
