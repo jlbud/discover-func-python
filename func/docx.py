@@ -1,3 +1,7 @@
+"""
+安装python-docx
+pip3 install python-docx
+"""
 from docx import Document
 from docx.shared import Inches
 
@@ -27,7 +31,7 @@ document.add_paragraph('first item in ordered list', style='List Number')
 document.add_paragraph('second item in ordered list', style='List Number')
 
 # 添加图片
-# document.add_picture('abc.png', width=Inches(1.25))
+document.add_picture('abc.png', width=Inches(1.25))
 
 records = (
     (3, '101', 'Spam'),
