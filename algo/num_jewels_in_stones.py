@@ -24,3 +24,7 @@ def num_jewels_in_stones(J: str, S: str) -> int:
 n = num_jewels_in_stones("Aa", "aabbbb")
 # output: 2
 print(n)
+
+n = num_jewels_in_stones("A", "aabbbb")
+# output: 0
+print(n)
