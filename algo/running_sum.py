@@ -33,5 +33,5 @@ class Solution:
 
 
 s = Solution()
-l = s.runningSum([1, 2, 3, 4])
+l = s.running_sum([1, 2, 3, 4])
 print(l)
