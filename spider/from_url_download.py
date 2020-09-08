@@ -1,6 +1,5 @@
 import os
 import urllib.request
-from concurrent.futures.thread import ThreadPoolExecutor
 
 
 def cbk(a, b, c):
@@ -12,7 +11,11 @@ def cbk(a, b, c):
     per = 100.0 * a * b / c
     if per > 100:
         per = 100
-    print("\r", "进度{:.0f}%".format(per), end="")
+    '''
+    \r 表示将光标的位置回退到本行的开头位置
+    end='' 表示尾部不用换行，函数默认为print(end='\n')
+    '''
+    print('\r', "进度{:.0f}%".format(per), end='')
 
 
 def download(url, pwd):
