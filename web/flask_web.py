@@ -26,20 +26,18 @@ def route_url():
 
 @app.route('/mysql', methods=['GET', 'POST'])
 def route_get_mysql():
+    # cursorclass 设置字典格式的输出
     conn = pymysql.connect(host='115.28.56.***', port=3306, user='root', password='12345678', db='student',
-                           charset='utf8')
-    cur = conn.cursor()
-    cur.execute('select person from t1 order by id asc')
-    result = cur.fetchall()
-    cur.close()
-    conn.close()
-
-    rlt = {}
-    for i in result:
-        for j in i:
-            name = 'name%s' % j
-            rlt[name] = j
-    return to_json(rlt)
+                           charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with conn.cursor() as cur:
+            cur.execute('select * from t1 order by id asc')
+            result = cur.fetchall()
+            for i in result:
+                print(i["id"])
+    finally:
+        conn.close()
+    return to_json(result)
 
 
 def to_json(content):
