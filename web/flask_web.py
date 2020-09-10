@@ -1,3 +1,10 @@
+import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+sys.path.append(BASE_DIR)
+print(sys.path)
+
 from flask import Flask
 
 from web.service.hello import hello_url, hello
