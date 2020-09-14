@@ -116,7 +116,7 @@ body = {
 }
 
 # X-signature 替换为对应的token
-headers = {'content-type': "application/json", 'X-signature': "AE3E6B8E401B4EFB01BB914C30145083"}
+headers = {'content-type': "application/json", 'X-signature': ""}
 
 
 def send_post():
