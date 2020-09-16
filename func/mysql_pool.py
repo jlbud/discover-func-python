@@ -21,7 +21,7 @@ class MMysql(object):
             self.conn_queue.put(self.get_sql_conn())
 
     def get_sql_conn(self):
-        conn = pymysql.connect(host='115.28.56.168', port=3306, user='root', password='12345678', db='student',
+        conn = pymysql.connect(host='115.28.56.***', port=3306, user='root', password='12345678', db='student',
                                charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         return conn
 
