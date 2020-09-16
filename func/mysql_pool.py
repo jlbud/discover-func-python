@@ -57,6 +57,7 @@ class MMysql(object):
             pass
 
 
+# nohup python3 mysql_pool.py >> ./my.log 2>&1 &
 if __name__ == '__main__':
     opm = MMysql()
 
