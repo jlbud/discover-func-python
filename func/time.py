@@ -46,3 +46,13 @@ def next_time():
     # 定时器,参数为(多少时间后执行，单位为秒，执行的方法)
     timer = threading.Timer(timer_start_time, func)
     timer.start()
+
+
+def tomorrow():
+    # 明天
+    yesterday = (datetime.date.today() + datetime.timedelta(days=+1)).strftime("%Y-%m-%d")
+    print(yesterday)
+
+
+if __name__ == '__main__':
+    tomorrow()
