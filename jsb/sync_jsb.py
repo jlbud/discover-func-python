@@ -28,16 +28,21 @@ def re_sync_data():
     print("send_data")
 
 
-def loadConf(cmd) -> Config:
-    config = configparser.ConfigParser()
+def loadConf() -> Config:
+    env = ''
+    try:
+        env = str(sys.argv[1])
+    except Exception as e:
+        print('sys.argv exception:', e)
 
-    if cmd == 'test.env':
+    if env == 'test.env':
         confPath = curPath + '/config/test.conf'
-    elif cmd == 'publish.env':
+    elif env == 'publish.env':
         confPath = curPath + '/config/publish.conf'
     else:
         confPath = curPath + '/config/test.conf'
 
+    config = configparser.ConfigParser()
     config.read(confPath, encoding='utf-8')
     staff = config.get('server', 'staff')
     org = config.get('server', 'org')
@@ -46,22 +51,22 @@ def loadConf(cmd) -> Config:
 
 def read_file(filepath):
     str = ""
-    fp = open(filepath)
+    fp = open(filepath, 'r')
     content = fp.readlines()
-    for c in content:
-        str += c.replace('\n', ' ')
+    for line in content:
+        if line.strip() == '':
+            continue
+        words = line.split('|')
+        for word in words:
+            if word.strip() == '':
+                continue
+            print(word)
+            str += word
     fp.close()
     return str
 
 
 if __name__ == '__main__':
-    env = ''
-    try:
-        env = str(sys.argv[1])
-    except Exception as e:
-        print('sys.argv exception:', e)
-
-    conf = loadConf(env)
-
-    ret = read_file('/Users/kevin/test/role.json')
+    conf = loadConf()
+    ret = read_file('/Users/kevin/github.com/python/discover-func-python/jsb/role.json')
     print(ret)
