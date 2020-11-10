@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+import threading
+
 
 class Thread(threading.Thread):
     def __init__(self, func, args=()):
