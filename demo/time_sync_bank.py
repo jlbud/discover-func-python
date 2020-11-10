@@ -1,5 +1,5 @@
 import datetime
-import threads_read_txt
+from threads import threads_read_txt
 
 
 def func():

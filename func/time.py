@@ -1,5 +1,5 @@
 import datetime
-import threads_read_txt
+import threading
 
 import time
 
@@ -44,7 +44,7 @@ def next_time():
     # 54186.75975
 
     # 定时器,参数为(多少时间后执行，单位为秒，执行的方法)
-    timer = threads_read_txt.Timer(timer_start_time, func)
+    timer = threading.Timer(timer_start_time, func)
     timer.start()
 
 

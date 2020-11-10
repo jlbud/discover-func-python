@@ -16,7 +16,7 @@ def get_page(url):
         return None
 
 
-def parse_page(html) -> str:
+def parse_page(html):
     pattern = re.compile(
         '<!DOCTYPE html><!--STATUS OK--><html><head><meta name=".*?" content="(.*?)"/><meta name=".*?" content=.*?',
         re.S | re.M)
