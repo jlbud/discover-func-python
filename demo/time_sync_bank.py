@@ -1,11 +1,11 @@
 import datetime
-import threading
+import threads_read_txt
 
 
 def func():
     print("running task")
     # 每天
-    threading.Timer(86400, func).start()
+    threads_read_txt.Timer(86400, func).start()
 
 
 def run():
@@ -22,7 +22,7 @@ def run():
     if recently_time > now_time:
         timer_start_time = (recently_time - now_time).total_seconds()
         print("remain seconds: %s" % timer_start_time)
-        timer = threading.Timer(timer_start_time, func)
+        timer = threads_read_txt.Timer(timer_start_time, func)
         timer.start()
     else:
         now_time = datetime.datetime.now()
@@ -32,7 +32,7 @@ def run():
                 next_time.date().day) + " 14:54:00",
             "%Y-%m-%d %H:%M:%S")
         timer_start_time = (recently_time - now_time).total_seconds()
-        threading.Timer(timer_start_time, func).start()
+        threads_read_txt.Timer(timer_start_time, func).start()
         print("remain seconds: %s" % 86400)
 
 
