@@ -1,6 +1,6 @@
+# -*- coding:utf-8 -*-
 import datetime
 import threading
-
 import time
 
 
@@ -22,7 +22,7 @@ def next_time():
     def func():
         print("haha")
         # 如果需要循环调用，就要添加以下方法
-        timer = threads_read_txt.Timer(86400, func)
+        timer = threading.Timer(86400, func)
         timer.start()
 
     # 获取现在时间
